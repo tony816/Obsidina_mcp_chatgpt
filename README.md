@@ -60,3 +60,19 @@ ngrok http 8000
    - MCP server URL: `https://<ngrok-domain>/mcp`
    - Authentication: `None`
    - Connect the app
+
+## One-Click Launcher
+
+After the first setup succeeds, create a desktop shortcut:
+
+```powershell
+.\scripts\create_desktop_shortcut.ps1 -VaultPath "<VAULT_PATH>"
+```
+
+Then double-click **Start Obsidian MCP ChatGPT Servers** on the desktop. It will:
+
+- start Obsidian if needed
+- wait for the Local REST API on `127.0.0.1:27124`
+- start the local MCP bridge on `127.0.0.1:8000`
+- start `ngrok http 8000`
+- print and save the ChatGPT MCP URL to `runtime\last_chatgpt_mcp_url.txt`
